@@ -1,0 +1,234 @@
+openapi: 3.0.0
+info:
+  title: SWAPI Serverless API
+  description: API para obtener y almacenar datos de SWAPI en una base de datos MySQL.
+  version: 1.0.0
+servers:
+  - url: https://orbqvqc93b.execute-api.us-east-1.amazonaws.com/dev
+paths:
+  /people/{id}:
+    get:
+      summary: Obtener y Guardar Personaje
+      description: Obtiene un personaje de la API de SWAPI, lo traduce y lo guarda en la base de datos.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID del personaje en SWAPI
+      responses:
+        '200':
+          description: Personaje obtenido y guardado exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  nombre:
+                    type: string
+                  altura:
+                    type: string
+                  masa:
+                    type: string
+                  color_cabello:
+                    type: string
+                  color_piel:
+                    type: string
+                  color_ojos:
+                    type: string
+                  fecha_nacimiento:
+                    type: string
+                  genero:
+                    type: string
+                  mundo_natal:
+                    type: string
+                  peliculas:
+                    type: array
+                    items:
+                      type: string
+                  especies:
+                    type: array
+                    items:
+                      type: string
+                  vehiculos:
+                    type: array
+                    items:
+                      type: string
+                  naves_estelares:
+                    type: array
+                    items:
+                      type: string
+                  creado:
+                    type: string
+                    format: date-time
+                  editado:
+                    type: string
+                    format: date-time
+                  url:
+                    type: string
+        '500':
+          description: Error interno del servidor
+  /films/{id}:
+    get:
+      summary: Obtener y Guardar Película
+      description: Obtiene una película de la API de SWAPI, la traduce y la guarda en la base de datos.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID de la película en SWAPI
+      responses:
+        '200':
+          description: Película obtenida y guardada exitosamente
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  titulo:
+                    type: string
+                  episodio_id:
+                    type: integer
+                  apertura_crawl:
+                    type: string
+                  director:
+                    type: string
+                  productor:
+                    type: string
+                  fecha_lanzamiento:
+                    type: string
+                    format: date
+                  personajes:
+                    type: array
+                    items:
+                      type: string
+                  especies:
+                    type: array
+                    items:
+                      type: string
+                  vehiculos:
+                    type: array
+                    items:
+                      type: string
+                  naves_estelares:
+                    type: array
+                    items:
+                      type: string
+                  planetas:
+                    type: array
+                    items:
+                      type: string
+                  creado:
+                    type: string
+                    format: date-time
+                  editado:
+                    type: string
+                    format: date-time
+                  url:
+                    type: string
+        '500':
+          description: Error interno del servidor
+  /people:
+    get:
+      summary: Listar Personajes
+      description: Lista todos los personajes guardados en la base de datos.
+      responses:
+        '200':
+          description: Lista de personajes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    nombre:
+                      type: string
+                    altura:
+                      type: string
+                    masa:
+                      type: string
+                    color_cabello:
+                      type: string
+                    color_piel:
+                      type: string
+                    color_ojos:
+                      type: string
+                    fecha_nacimiento:
+                      type: string
+                    genero:
+                      type: string
+                    mundo_natal:
+                      type: string
+                    peliculas:
+                      type: string
+                    especies:
+                      type: string
+                    vehiculos:
+                      type: string
+                    naves_estelares:
+                      type: string
+                    creado:
+                      type: string
+                      format: date-time
+                    editado:
+                      type: string
+                      format: date-time
+                    url:
+                      type: string
+        '500':
+          description: Error interno del servidor
+  /films:
+    get:
+      summary: Listar Películas
+      description: Lista todas las películas guardadas en la base de datos.
+      responses:
+        '200':
+          description: Lista de películas
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    titulo:
+                      type: string
+                    episodio_id:
+                      type: integer
+                    apertura_crawl:
+                      type: string
+                    director:
+                      type: string
+                    productor:
+                      type: string
+                    fecha_lanzamiento:
+                      type: string
+                      format: date
+                    personajes:
+                      type: string
+                    especies:
+                      type: string
+                    vehiculos:
+                      type: string
+                    naves_estelares:
+                      type: string
+                    planetas:
+                      type: string
+                    creado:
+                      type: string
+                      format: date-time
+                    editado:
+                      type: string
+                      format: date-time
+                    url:
+                      type: string
+        '500':
+          description: Error interno del servidor

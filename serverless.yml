@@ -1,0 +1,40 @@
+service: RetoTecnico
+
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  obtenerPelicula:
+    handler: dist/handler.obtenerPelicula
+    events:
+      - http:
+          path: films/{id}
+          method: get
+
+  obtenerPersonaje:
+    handler: dist/handler.obtenerPersonaje
+    events:
+      - http:
+          path: people/{id}
+          method: get
+
+  listarPersonajes:
+    handler: dist/handler.listarPersonajes
+    events:
+      - http:
+          path: people
+          method: get
+
+  listarPeliculas:
+    handler: dist/handler.listarPeliculas
+    events:
+      - http:
+          path: films
+          method: get
+
+plugins:
+  - serverless-offline
+
