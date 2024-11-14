@@ -1,16 +1,13 @@
 import { createPool, Pool } from 'mysql2/promise';
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 let pool: Pool;
 
 try {
     pool = createPool({
-        host: process.env.DB_HOST,
-        user: process.env.DB_USER,
-        password: process.env.DB_PASSWORD,
-        database: process.env.DB_NAME
+        host:'rds-reto.cvkkykiugu1s.us-east-1.rds.amazonaws.com',
+        user: 'admin',
+        password:'C0n3x10n',
+        database: 'RDSReto'
     });
     console.log('Conexión a la base de datos establecida.');
 } catch (error) {

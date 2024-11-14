@@ -8,28 +8,28 @@ provider:
 
 functions:
   obtenerPelicula:
-    handler: dist/handler.obtenerPelicula
+    handler: dist/handler.obtenerPeliculaHandler
     events:
       - http:
           path: films/{id}
           method: get
 
   obtenerPersonaje:
-    handler: dist/handler.obtenerPersonaje
+    handler: dist/handler.obtenerPersonajeHandler
     events:
       - http:
           path: people/{id}
           method: get
 
   listarPersonajes:
-    handler: dist/handler.listarPersonajes
+    handler: dist/handler.listarPersonajesHandler
     events:
       - http:
           path: people
           method: get
 
   listarPeliculas:
-    handler: dist/handler.listarPeliculas
+    handler: dist/handler.listarPeliculasHandler
     events:
       - http:
           path: films

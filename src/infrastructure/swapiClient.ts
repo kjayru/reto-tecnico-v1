@@ -1,10 +1,7 @@
 import axios from 'axios';
-import dotenv from 'dotenv';
 
-dotenv.config();
-
-const SWAPI_BASE_URL = process.env.SWAPI_BASE_URL || 'https://swapi.dev/api';
-const SWAPI_FILMS_URL = process.env.SWAPI_FILMS_URL || 'https://swapi.py4e.com/api';
+const SWAPI_BASE_URL =  'https://swapi.dev/api';
+const SWAPI_FILMS_URL = 'https://swapi.py4e.com/api';
 
 export const obtenerPersonaje = async (id: number) => {
     try {

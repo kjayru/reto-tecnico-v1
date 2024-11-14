@@ -8,8 +8,9 @@
     "forceConsistentCasingInFileNames": true,
     "outDir": "./dist",
     "typeRoots": ["./node_modules/@types"],
-    "resolveJsonModule": true, 
-    "moduleResolution": "node"  
+    "types": ["node","jest"],
+    "resolveJsonModule": true,
+    "moduleResolution": "node"
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
